@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Insecurity in Alexandra Township</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
+body {background:#0b0b0b;color:#fff;}
+
+nav {
+ display:flex;justify-content:space-between;align-items:center;
+ padding:15px 30px;background:rgba(0,0,0,0.9);position:sticky;top:0;
+}
+nav h2 {color:#e60000;}
+nav a {color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;}
+nav a:hover {color:#e60000;}
+
+header {
+ height:90vh;
+ display:flex;flex-direction:column;justify-content:center;align-items:center;
+ text-align:center;
+ background:linear-gradient(180deg,#000,#111);
+}
+header h1 {font-size:3em;color:#e60000;margin-bottom:10px;}
+
+section {padding:60px 20px;max-width:1100px;margin:auto;}
+h2 {color:#e60000;margin-bottom:20px;font-size:2em;}
+
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+
+.card {
+ background:#141414;padding:20px;border-radius:15px;
+ transition:0.3s;border:1px solid #222;
+}
+.card:hover {transform:translateY(-8px) scale(1.02);}
+.card strong {font-size:1.8em;color:#00ffcc;}
+
+.stat {text-align:center;}
+.stat h3 {font-size:2.2em;color:#00ffcc;}
+
+.chart-container {background:#141414;padding:20px;border-radius:15px;}
+
+.fade {opacity:0;transform:translateY(40px);transition:1s;}
+.fade.show {opacity:1;transform:translateY(0);}
+
+footer {text-align:center;padding:20px;background:#000;margin-top:40px;}
+
+.subtitle{opacity:0.85;font-style:italic;margin-top:10px}
+
+header{position:relative;background:url('https://images.unsplash.com/photo-1584467735871-8f5a1f9c6c9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat}
+header .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7)}
+header h1, header p{position:relative;z-index:2}
+
+blockquote{border-left:4px solid #e60000;padding-left:15px;margin:20px 0;font-style:italic;opacity:0.9}
+
+.solution-card{background:#111;padding:25px;border-left:4px solid #00ffcc;border-radius:10px}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Alex Hunger</h2>
+<div>
+<a href="#about">About</a>
+<a href="#causes">Causes</a>
+<a href="#impact">Impact</a>
+<a href="#stats">Stats</a>
+<a href="#solutions">Solutions</a>
+<a href="#planning">Planning</a>
+</div>
+</nav>
+
+<header>
+<h1>Food Insecurity in Alexandra</h1>
+<p class="subtitle">A documentary-style look into hunger, survival, and hope</p>
+<div class="overlay"></div>
+</header>
+
+<section id="about" class="fade">
+<h2>About</h2>
+<div class="card">
+<p>Alexandra Township faces poverty, unemployment, and food shortages affecting thousands of families.</p>
+</div>
+</section>
+
+<section id="causes" class="fade">
+<h2>Causes</h2>
+<div class="grid">
+<div class="card">Unemployment</div>
+<div class="card">High food prices</div>
+<div class="card">Economic inequality</div>
+<div class="card">Limited access to food</div>
+</div>
+
+<br><br>
+
+<div class="card">
+<h3>Unemployment & Crime</h3>
+<p>
+High unemployment in Alexandra does not only lead to poverty, but can also increase crime rates. Many individuals, facing hunger and financial pressure, may turn to illegal activities as a way to survive and provide for their families. This creates a cycle where poverty leads to crime, and crime further destabilizes the community.
+</p>
+</div>
+</section>
+
+<section id="impact" class="fade">
+<h2>Impact</h2>
+<div class="grid">
+<div class="card">Malnutrition</div>
+<div class="card">Poor education</div>
+<div class="card">Health issues</div>
+<div class="card">Stress</div>
+</div>
+</section>
+
+<section id="stats" class="fade">
+<h2>Statistics</h2>
+<div class="grid">
+<div class="card stat"><h3>48%</h3><p>Food insecure</p></div>
+<div class="card stat"><h3>1 in 3</h3><p>Children affected</p></div>
+<div class="card stat"><h3>17.8M</h3><p>In South Africa</p></div>
+<div class="card stat"><h3>60%</h3><p>Unemployment</p></div>
+</div>
+
+<br><br>
+
+<div class="chart-container">
+<canvas id="barChart"></canvas>
+</div>
+
+<br><br>
+
+<div class="chart-container">
+
+</div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="fade">
+<h2>Solutions & Hope</h2>
+
+<div class="solution-card">
+<p>
+Despite the challenges, there are real solutions that can help reduce food insecurity in Alexandra. These solutions focus on empowering communities, creating opportunities, and improving access to food.
+</p>
+</div>
+
+<br>
+
+<div class="grid">
+<div class="card">Community feeding schemes and soup kitchens</div>
+<div class="card">Urban farming and local food gardens</div>
+<div class="card">Job creation and skills development</div>
+<div class="card">Government support and social grants</div>
+</div>
+
+<blockquote>
+"Hunger is not just about food — it's about dignity, opportunity, and survival."
+</blockquote>
+
+</section>
+
+<!-- PLANNING -->
+<section id="planning" class="fade">
+<h2>Campaign Planning</h2>
+
+<div class="card">
+<h3>Timeline</h3>
+<p>
+The campaign runs from April to June. In April, the team prepares and plants a food garden with fast-growing crops like spinach and beetroot, while starting book drives and fixing sanitation issues. In May, progress is monitored, books are distributed, and infrastructure improvements continue. By June, crops are harvested to support the school feeding scheme and the overall impact is evaluated.
+</p>
+</div>
+
+<br>
+
+<div class="card">
+<h3>Resources Needed</h3>
+<p>
+The project requires consistent food supplies, funding, volunteers, cooking equipment, and transport. Support from local businesses and community members is essential to maintain the feeding programme and ensure sustainability.
+</p>
+</div>
+
+<br>
+
+<div class="card">
+<h3>Community Involvement</h3>
+<p>
+Teachers, learners, parents, and local businesses all play a role. Teachers identify learners in need, learners help raise awareness, and community members contribute food, time, and support to ensure the programme succeeds.
+</p>
+</div>
+
+<br>
+
+<div class="card">
+<h3>Skills Required</h3>
+<p>
+Key skills include organisation, teamwork, communication, leadership, and problem-solving. These ensure the campaign runs smoothly and adapts to challenges such as food shortages or logistical issues.
+</p>
+</div>
+
+</section>
+
+<footer>
+<p>Created by Arnold Xiluvelo Maluleke</p>
+</footer>
+
+<script>
+new Chart(document.getElementById('barChart'), {
+ type:'bar',
+ data:{labels:['Food Insecure','Food Secure'],datasets:[{data:[48,52],backgroundColor:['#e60000','#00ffcc']}]} });
+
+
+
+const elements=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+ elements.forEach(el=>{
+  if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('show');}
+ });
+});
+</script>
+
+</body>
+</html>
